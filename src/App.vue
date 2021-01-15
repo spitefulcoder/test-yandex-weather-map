@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <WeatherBar :forecast="forecast" />
+    <WeatherBar v-if="forecast.fact" :forecast="forecast" />
     <div class="map-block">
       <yandex-map
         :coords="coords"
@@ -23,7 +23,6 @@
 
 <script>
 import WeatherBar from './components/WeatherBar'
-import { loadYmap } from 'vue-yandex-maps'
 
 export default {
   name: 'App',
@@ -85,9 +84,7 @@ export default {
     },
   },
   async mounted() {
-    const settings = { lang: 'ru_RU' }
     this.fetchWeather(55.751244, 37.618423)
-    await loadYmap({ ...settings, debug: true })
   },
 }
 </script>

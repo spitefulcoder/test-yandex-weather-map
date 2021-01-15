@@ -1,5 +1,5 @@
 <template>
-  <div v-show="forecast.fact.temp" class="container">
+  <div class="container">
     <div class="weather-maps-fact">
       <h1 class="weather-maps-fact__title">
         <div v-if="forecast.geo_object.district">
@@ -30,7 +30,7 @@ export default {
   props: {
     forecast: {
       type: Object,
-      default: null,
+      required: true,
     },
   },
 }
